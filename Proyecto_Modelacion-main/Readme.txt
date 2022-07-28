@@ -1,5 +1,5 @@
 
-Autor: Luis  Anthony Moreira Lucas
+Autor: Nicole Vargas Garcia 
 Curso: 6A Modelamiento y Simulación
-URL: https://proyecto-modelamiento-laml6a.herokuapp.com
+URL: https://proyectosimulacion-main.herokuapp.com/
 
