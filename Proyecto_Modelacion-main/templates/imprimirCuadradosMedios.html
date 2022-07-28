@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Método de los cuadrados medios</title>
+{% endblock %}
+    
+{% block content %} 
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <ol>
+        <li><a href="{{url_for('home')}}">Home</a></li>
+        <li>Cuadrado Medio</li>
+      </ol>
+      <h2>Método Cuadrado Medio</h2>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+  <br>
+  
+  <div class="section-title">
+    <h2>Método de los cuadrados medios</h2>
+  </div>
+
+<div class="container">
+    <legend class="text-left header"></legend>
+    <div class="card">
+        <form method="POST" action="{{url_for('calcularCuadradosMedios')}}"><br>
+            <div class="col-sm-12">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault01">Número iteraciones</label>
+                        <input name="numeroIteraciones" type="number" class="form-control" id="validationDefault01"  required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault02">Semilla</label>
+                        <input name="semilla" type="number" class="form-control" id="validationDefault02"  required>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Calcular</button>
+            </div>
+        </form><br> 
+    </div>
+</div><br>
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Método de los Cuadrados Medios</h2>
+      </div>
+      <div class="row content">
+        <div class="col-lg-6">
+          <p>
+            Es un método propuesto en los años 40 por los matemáticos John von Neumann y Nicholas Metropolis, 
+            siendo utilizado para la generación de números pseudoaleatorios, Esto para obtener una sucesión de 
+            números que básicamente se obtienen a partir de recurrencia, los cuales son relevantes en los 
+            procesos de simulación debido a que con estos números se hace posible comprobar el correcto 
+            funcionamiento de una prueba mediante la observación del comportamiento de las variables que 
+            se puedan encontrar a lo largo de la simulación.
+          </p>
+          
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            El método consiste en tomar un número al azar, X° de 2n cifras que al ser elevado al cuadrado 
+                resulta un número de hasta 4n cifras, de no ser así se deben agregar ceros a la izquierda de dicho 
+                resultado para que éste tenga exactamente 4n cifras.
+                <br>
+                Se denomina X1 al número resultante de seleccionar las 2n cifras centrales del resultado anterior.
+                <br>
+                Se genera el número pseudoaleatorio U1 ubicando un punto decimal delante de las 2n cifras de X1 y así sucesivamente para los demás números pseudoaleatorios.
+          </p>     
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Us Section -->
+
+<div class="container">
+    <legend class="text-left header">Gráfica</legend>
+    <div class="card">
+        <center><img src="data:image/png;base64,{{ image }}"></center>
+    </div>
+</div><br>
+
+
+<div class="container">
+    {{data|safe}}
+</div>
+
+<div class="container">
+    {{data2|safe}}                              
+</div>
+{% endblock %}
+                
+
+
+
+
+
+
+
+
+                
+            
+        
+    
+
+

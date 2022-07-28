@@ -1,0 +1,103 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Media, Mediana y Moda</title>
+{% endblock %}
+  
+{% block content %}
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+        <div class="container">
+  
+          <ol>
+            <li><a href="{{url_for('home')}}">Home</a></li>
+            <li>MED</li>
+          </ol>
+          <h2>Media, Mediana y Estadística</h2>
+  
+        </div>
+      </section><!-- End Breadcrumbs -->
+
+<div class="container">
+
+<br>
+<div class="section-title">
+  <h2>MEDIA, MEDIANA Y MODA</h2>
+</div>
+<div class="card">
+    <form enctype="multipart/form-data" method="POST" action="{{url_for('calcularMED')}}"><br>
+     <div class="col-sm-12">
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="exampleFormControlFile1">Subir archivo para calcular (.xlsx)</label>
+                    <input name="file" type="file" class="form-control-file form-data" id="exampleFormControlFile1" required>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                    </small>
+                </div>              
+            </div>
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault01">Nombre del Campo a Analizar</label>
+                    <input name="nombreColumna" type="text" class="form-control" id="validationDefault01"  required>
+                </div>
+                
+            </div>    
+            <button class="btn btn-primary" type="submit">Calcular</button>
+        </div>
+    </form><br> 
+</div>
+</div><br>
+
+<div class="container"> 
+        <legend class="text-left header">Datos</legend>
+        
+            {{datohtml|safe}}
+      
+
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Caso de estudio</h2>
+      </div>
+
+      <div class="row content">
+        <div class="col-lg-6">
+          <p>
+            La <b>media aritmética</b> o promedio representa el reparto equitativo, el equilibrio, la equidad. 
+            Es el valor que tendrían los datos, si todos ellos fueran iguales. O, también, el valor 
+            que correspondería a cada uno de los datos de la distribución si su suma total se repartiera 
+            por igual.
+          </p>
+          
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            Si se ordenan todos los datos, de menor a mayor, <b>la mediana</b>  es el valor que ocupa la posición central. 
+            Si el número de datos es par, la mediana es la media aritmética de los dos centrales. <br><br>
+            La <b>moda</b> es el valor que más se repite o, lo que es lo mismo, el que tiene la mayor frecuencia.
+          </p>     
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Us Section -->
+
+  <div class="container">
+    {{data|safe}}
+  </div>
+
+  </div>
+  <div class="container">
+      <legend class="text-left header">Gráfica</legend>
+      <div class="card">
+          <center><img src="data:image/png;base64,{{ image }}"></center>
+      </div>
+  </div><br>
+
+<div class="container">
+    {{data2|safe}}
+</div>
+{% endblock %}

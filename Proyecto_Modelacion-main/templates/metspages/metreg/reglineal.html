@@ -1,0 +1,143 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Método Regresión Lineal</title>
+{% endblock %}
+
+{% block content %}
+
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <ol>
+        <li><a href="{{url_for('home')}}">Home</a></li>
+        <li>Regresión Lineal</li>
+      </ol>
+      <h2>Regresión Lineal</h2>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Método de Regresión Lineal</h2>
+      </div>
+      <div class="row content">
+        <div class="col-lg-6">
+          <p>
+            La regresión lineal es una técnica de modelado estadístico que se emplea para describir 
+			una variable de respuesta continua como una función de una o varias variables predictoras. 
+			Puede ayudar a comprender y predecir el comportamiento de sistemas complejos o a analizar 
+			datos experimentales, financieros y biológicos
+          </p>
+          
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            Las técnicas de regresión lineal permiten crear un modelo lineal. Este modelo describe
+			 la relación entre una variable dependiente  Y  (también conocida como la respuesta) 
+			 como una función de una o varias variables independientes  Xi  (denominadas predictores).
+          </p>     
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Us Section -->
+
+<div class="  demo-1" id="demo-1">
+	
+	<div class="main clearfix">
+		<div class="row">
+			<div class="col-sm-5">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Regresión lineal</h5>
+						<div class="card-text">
+							<form class="form-inline" method="POST">
+								<table class="table">
+									{% for field in form %}
+									<tr>
+										<td>{{ field.label }}</td>
+									</tr>
+									<tr>
+										<td>{{ field }}</td>
+									</tr>
+									{% endfor %}
+									<tr>
+										<td> <input type="submit" value="Resolver" class="btn btn-info form-control">
+										</td>
+										<td></td>
+									</tr>
+								</table>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-7">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Aplicaciones de la regresión lineal</h5>
+						<p class="card-text">
+					
+							La regresión lineal cuenta con ciertas caracteríticas ideales para las siguientes aplicaciones:
+							<ul>
+								<li>
+									<b> Predicción o pronóstico:</b> utilice un modelo de regresión para crear un modelo de pronóstico para un conjunto de datos específico. A partir de la moda, puede usar la regresión para predecir valores de respuesta donde solo se conocen los predictores.
+								</li>
+								<br>
+								<li>
+									<b>Fuerza de la regresión:</b> utilice un modelo de regresión para determinar si existe una relación entre una variable y un predictor,y cuán estrecha es esta relación.
+								</li>
+							</ul>									
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- parte 2 -->
+		<div class="row">
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Tabla de valores aleatorios</h5>
+				  <p class="card-text">
+					{% if N != None %}
+					 
+					{% for table in tables %}
+					{{ table|safe }}
+					{% endfor %}
+					{% endif %}  
+					</p>
+				  
+				</div>
+			  </div>
+			</div>
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Gráfica de los números aleatorios generados</h5>
+				  <p class="card-text"> 
+					{% if N != None %}
+			 
+          <img src="{{ grafica }}" width="550">
+			
+					{% endif %}
+
+				  </p>
+			 
+				</div>
+			  </div>
+			</div>
+		  </div>
+		<!-- parte 2 2 -->
+	</div>
+</div><!-- /container -->
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Método de los cuadrados medios</title>
+{% endblock %}
+
+{% block content %} 
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <ol>
+        <li><a href="{{url_for('home')}}">Home</a></li>
+        <li>Cuadrado Medio</li>
+      </ol>
+      <h2>Método Cuadrado Medio</h2>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+<div class="container">
+	<div class="section-title">
+		<br><h2>Método de los cuadrados medios</h2>
+	  </div>
+	
+	<div class="card">
+		<form method="POST" action="{{url_for('calcularCuadradosMedios')}}"><br>
+		 	<div class="col-sm-12">
+				<div class="form-row">
+				    <div class="col-md-6 mb-3">
+				      	<label for="validationDefault01">Número iteraciones (n)</label>
+				      	<input name="numeroIteraciones" type="number" class="form-control" id="validationDefault01" placeholder="Ejemplo:10" required>
+				    </div>
+				    <div class="col-md-6 mb-3">
+				      	<label for="validationDefault02">Semilla  (X0)</label>
+				      	<input name="semilla" type="number" class="form-control" id="validationDefault02"  placeholder="Ejemplo:1456" required>
+				    </div>
+				</div>
+				<button class="btn btn-primary" type="submit">Calcular</button>
+			</div>
+		</form><br> 
+	</div>
+</div><br>
+{% endblock %}

@@ -1,0 +1,131 @@
+ 
+{% extends "layout2.html" %}
+
+{% block content %}
+<div class="  demo-1">
+	{% include "header.html" %} 
+	<div class="main clearfix">
+		<div class="row">
+			<div class="col-sm-5">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title"> Modelo de líneas de espera</h5>
+						<div class="card-text">
+							<form class="form-inline" method="POST">
+								<table class="table">
+									{% for field in form %}
+									<tr>
+										<td>{{ field.label }}</td>
+									</tr>
+									<tr>
+										<td>{{ field }}</td>
+									</tr>
+									{% endfor %}
+									<tr>
+										<td> <input type="submit" value="Resolver" class="btn btn-info form-control">
+										</td>
+										<td></td>
+									</tr>
+								</table>
+							</form>
+<hr>
+{% include "metmodelo.html" %} 
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-7">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Modelo de líneas de espera</h5>
+						<p class="card-text">
+              El objetivo es encontrar el estado óptimo del sistema y determinar una capacidad de servicio apropiada, Minimizar
+              el tiempo de atención y servicio
+              a los clientes o usuarios que llegan en un determinado tiempo. Cuenta con las siguientes relaciones matemáticas:
+              \[ La \ probabilidad \ de \ hallar \ el \ sistema \ ocupado: \ p=\lambda/\mu \]
+              \[ La \ probabilidad \ de \ que \ no \ haya \ unidades \ en \ el \ sistema: \ Po=1-\lambda/\mu \]
+              \[ Promedio \ de \ unidades \ en \ la \ linea \ de \ espera: \ Lq=\lambda^2/(\mu-\lambda)\mu \]
+              \[ Número \ esperado \ de \ clientes \ en \ el \ sistema: \ L=\lambda/\mu-\lambda \]
+              \[ Tiempo \ de \ espera \ en \ cola: Wq=\lambda/\mu(\mu-\lambda) \]
+              \[ El \ tiempo \ promedio \ que \ una \ unidad \ pasa \ en \ el \ sistema: \ W=1/(\mu-\lambda) \]
+              \[ La \ probabilidad \ de \ que \ haya \ n \ unidades \ en \ el \ sistema: \ Pn=(\lambda/\mu)^n Po \]
+              \[\]
+              {% if D != None %}
+              Para los datos ingresados los resultados serían los siguientes:
+              \[ La \ probabilidad \ de \ hallar \ el \ sistema \ ocupado: \ {{dato2}} \]
+              \[ La \ probabilidad \ de \ que \ no \ haya \ unidades \ en \ el \ sistema: \ {{dato3}} \]
+              \[ Promedio \ de \ unidades \ en \ la \ linea \ de \ espera: \ {{dato4}} \]
+              \[ Número \ esperado \ de \ clientes \ en \ el \ sistema: \ {{dato5}} \]
+              \[ Tiempo \ de \ espera \ en \ cola: {{dato7}} \]
+              \[ El \ tiempo \ promedio \ que \ una \ unidad \ pasa \ en \ el \ sistema: \ {{dato6}} \]
+              \[ La \ probabilidad \ de \ que \ haya \ n \ unidades \ en \ el \ sistema: \ {{dato8}} \]
+              {% endif %}
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+    <div class="row">
+			<div class="col-sm-12">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Tabla de resultados</h5>
+				  <p class="card-text">
+       
+    {% if D != None %}
+ 
+    {% for table in tables %}
+    {{ table|safe }}
+    {% endfor %}
+
+
+    {% endif %}
+					</p>
+				  
+				</div>
+			  </div>
+			</div>
+		 	<div class="col-sm-12">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Gráfico comparativo de costos</h5>
+				  <p class="card-text"> 
+            {% if D != None %}
+  
+            <img src="{{ grafica }}" width="900">
+        
+            {% endif %}
+				  </p>
+			 
+				</div>
+			  </div> 
+			</div>
+		  </div>
+		<!-- parte 2 2 -->
+		<!-- parte 2 -->
+		<div class="row">
+			<div class="col-sm-12">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Tabla de valores acumulados </h5>
+				  <p class="card-text">
+            {% if D != None %}
+ 
+            {% for table in tables2 %}
+            {{ table|safe }}
+            {% endfor %}
+            {% endif %}
+					</p>
+				  
+				</div>
+			  </div>
+			</div>
+	 
+		  </div>
+		<!-- parte 2 2 -->
+	</div>
+</div><!-- /container -->
+{% endblock %}

@@ -1,0 +1,95 @@
+ 
+{% extends "layout2.html" %}
+
+{% block content %}
+<div class="  demo-1">
+	{% include "header.html" %} 
+	<div class="main clearfix">
+		<div class="row">
+			<div class="col-sm-5">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title"> Transformada Inversa</h5>
+						<div class="card-text">
+							<form class="form-inline" method="POST">
+								<table class="table">
+									{% for field in form %}
+									<tr>
+										<td>{{ field.label }}</td>
+									</tr>
+									<tr>
+										<td>{{ field }}</td>
+									</tr>
+									{% endfor %}
+									<tr>
+										<td> <input type="submit" value="Resolver" class="btn btn-info form-control">
+										</td>
+										<td></td>
+									</tr>
+								</table>
+							</form>
+<hr>
+{% include "metcarlos.html" %} 
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-7">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title"> Transformada Inversa</h5>
+						<p class="card-text">
+      Consiste en generar un numero aleatorio comprendido entre 0 y 1, luego identificarlo con la función de
+      distribución acumulativa F(x),
+      a través de la función inversa obtener el valor de x. Se tiene la siguiente función:
+      \[ F(x) = \int_{0}^{x}F(t)dt \]
+
+
+      {% if N != None %}
+
+
+      {% endif %}
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+	 
+		<div class="row">
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Tabla de valores</h5>
+				  <p class="card-text">
+			    {% if N != None %} 
+    {% for table in tables %}
+    {{ table|safe }}
+    {% endfor %}
+    {% endif %}
+					</p>
+				  
+				</div>
+			  </div>
+			</div>
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Gráfica comparativa</h5>
+				  <p class="card-text"> 
+              {% if N != None %} 
+    <img src="{{ grafica }}" width="550"> 
+    {% endif %}
+				  </p>
+			 
+				</div>
+			  </div>
+			</div>
+		  </div>
+		 
+	</div>
+</div> 
+{% endblock %}  

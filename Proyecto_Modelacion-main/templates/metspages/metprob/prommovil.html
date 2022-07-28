@@ -1,0 +1,145 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Método de Promedio Móvil</title>
+{% endblock %}
+
+
+{% block content %}
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <ol>
+        <li><a href="{{url_for('home')}}">Home</a></li>
+        <li>Promedio Móvil </li>
+      </ol>
+      <h2>Promedio Móvil </h2>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Método de Promedio Móvil</h2>
+      </div>
+      <div class="row content">
+        <div class="col-lg-6">
+          <p>
+            El promedio móvil es un indicador de tendencias que se usan para realizar análisis de datos 
+			anteriores con la finalidad de formar una serie de medidas que provengan de diversos 
+			subconjuntos de datos de precios, por lo tanto, tienen la capacidad de examinar las medidas 
+			de precios que disminuyen en un período de tiempo.
+          </p>
+          
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            Estas medidas se pueden clasificar como conductores, ya que utilizan diversos datos anteriores 
+			para trazar nuevas líneas de precios. Se manifiestan por medio de señales luego de que la nueva 
+			tendencia o los movimientos importantes de precios hayan comenzado.
+          </p>     
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Us Section -->
+  
+<div class="  demo-1" id="demo-1">
+
+	<div class="main clearfix">
+		<div class="row">
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Promedio Movil </h5>
+						<div class="card-text">
+							<form class="form-inline" method="POST">
+								<table class="table">
+									{% for field in form %}
+									<tr>
+										<td>{{ field.label }}</td>
+									</tr>
+									<tr>
+										<td>{{ field }}</td>
+									</tr>
+									{% endfor %}
+									<tr>
+										<td> <input type="submit" value="Resolver" class="btn btn-info form-control">
+									</tr>
+								</table>
+							</form>
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-sm-6">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Promedio Móvil</h5>
+						<p class="card-text">
+							El método de pronóstico móvil simple se utiliza cuando se quiere dar más importancia 
+							a conjuntos de datos más recientes para obtener la previsión. Cada punto de una media 
+							móvil de una serie temporal es la media aritmética de un número de puntos consecutivos 
+							de la serie, donde el número de puntos es elegido de tal manera que los efectos estacionales 
+							y / o irregulares sean eliminados.
+						</p>
+						<p>
+							<h5>¿Cuándo utilizar un pronóstico de promedio móvil?</h5>
+							El pronóstico de promedio móvil es óptimo para patrones de demanda aleatorios 
+							o nivelados donde se pretende eliminar el impacto de los elementos irregulares 
+							históricos mediante un enfoque en períodos de demanda reciente.
+						</p>
+					</div>
+				</div>	
+			</div>
+
+		</div>
+		
+
+		<!-- parte 2 -->
+		<div class="row">
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Tabla de valores aleatorios</h5>
+				  <p class="card-text">
+					{% if N != None %}
+					 
+					{% for table in tables %}
+					{{ table|safe }}
+					{% endfor %}
+					{% endif %}  
+					</p>
+				  
+				</div>
+			  </div>
+			</div>
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Gráfica de los números aleatorios generados</h5>
+				  <p class="card-text"> 
+					{% if N != None %}
+			 
+					<img src="{{ grafica }}" width="550">
+			
+					{% endif %}
+
+				  </p>
+			 
+				</div>
+			  </div>
+			</div>
+		  </div>
+		<!-- parte 2 2 -->
+	</div>
+</div><!-- /container -->
+{% endblock %}

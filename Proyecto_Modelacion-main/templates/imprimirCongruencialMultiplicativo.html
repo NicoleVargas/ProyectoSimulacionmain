@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Método congruencial multiplicativo</title>
+{% endblock %}
+
+{% block content %} 
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <ol>
+        <li><a href="{{url_for('home')}}">Home</a></li>
+        <li>Conguencial Multiplicativo</li>
+      </ol>
+      <h2>Método Congruencial Multiplicativo</h2>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+<div class="container">
+    <div class="container">
+        <div class="section-title">
+            <br><h2>Método congruencial multiplicativo</h2>
+    </div>
+    <div class="card">
+        <form method="POST" action="{{url_for('calcularCongruencialMultiplicativo')}}"><br>
+            <div class="container">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault01">Número iteraciones</label>
+                        <input name="numeroIteraciones" type="number" class="form-control" id="validationDefault01"  required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault02">Semilla</label>
+                        <input name="semilla" type="number" class="form-control" id="validationDefault02"  required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault01">Multiplicador</label>
+                        <input name="multiplicador" type="number" class="form-control" id="validationDefault01"  required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault01">Módulo</label>
+                        <input name="modulo" type="number" class="form-control" id="validationDefault01"  required>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Calcular</button>
+            </div>
+        </form><br> 
+    </div>
+</div><br>
+
+<div class="container">
+    <legend class="text-left header">Gráfica</legend>
+    <div class="card">
+        <center><img src="data:image/png;base64,{{ image }}"></center>
+    </div>
+</div><br>
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Método Congruencial Multiplicativo</h2>
+      </div>
+      <div class="row content">
+        <div class="col-lg-6">
+          <p>
+            Un algoritmo que se utiliza para generar números pseudo aleatorios, es el algoritmo congruencia multiplicativo. Tiene como base al algoritmo congruencia lineal pero conlleva una operación menos.
+            La operación principal es la siguiente: <br>
+
+                   Xn+1 = (aXn ) (mod m)
+            <br>
+            
+          </p>
+          
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            Se ha demostrado que este método se comporta aceptablemente desde el punto de vistaestadístico. 
+            Con éste método el periodo máximo es m/4 y para asegurar esta propiedad cuando seutilizan computadoras 
+            binarias se consideran los siguientes criterios en la selección de losparámetros.
+                
+          </p>     
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Us Section -->
+<div class="container">
+    {{data|safe}}
+</div>
+{% endblock %}

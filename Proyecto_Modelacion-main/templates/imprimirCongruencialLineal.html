@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Método congruencial lineal</title>
+{% endblock %}
+  
+{% block content %}
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <ol>
+        <li><a href="{{url_for('home')}}">Home</a></li>
+        <li>Conguencial lineal</li>
+      </ol>
+      <h2>Método Congruencial Lineal</h2>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+<div class="container">
+    <div class="section-title">
+		<br><h2>Método congruencial lineal</h2>
+	</div>
+    <div class="card">
+        <form method="POST" action="{{url_for('calcularCongruencialLineal')}}"><br>
+            <div class="container">
+                <div class="form-row">
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault01">Número iteraciones</label>
+                        <input name="numeroIteraciones" type="number" class="form-control" id="validationDefault01"  required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault02">Semilla</label>
+                        <input name="semilla" type="number" class="form-control" id="validationDefault02"  required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault01">Multiplicador</label>
+                        <input name="multiplicador" type="number" class="form-control" id="validationDefault01"  required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault02">Incremento</label>
+                        <input name="incremento" type="number" class="form-control" id="validationDefault02"  required>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="validationDefault01">Módulo</label>
+                        <input name="modulo" type="number" class="form-control" id="validationDefault01"  required>
+                    </div>
+                </div>
+                <button class="btn btn-primary" type="submit">Calcular</button>
+            </div>
+        </form><br> 
+    </div>
+</div><br>
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Método Congruencial Lineal</h2>
+      </div>
+      <div class="row content">
+        <div class="col-lg-6">
+          <p>
+            Es un algoritmo que permite obtener una secuencia de números pseudoaleatorios calculados con una 
+            función lineal definida a trozos discontinua. Es uno de los métodos más antiguos y conocidos 
+            para la generación de números pseudoaleatorios.
+          </p>
+          
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            La teoría que sustenta el proceso es relativamente fácil de entender, el algoritmo en si es de fácil 
+            implementación y su ejecución es rápida, especialmente cuando el hardware del ordenador puede soportar 
+            aritmética modular al truncar el bit de almacenamiento correspondiente.
+          </p>     
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Us Section -->
+<div class="container">
+    <legend class="text-left header">Gráfica</legend>
+    <div class="card">
+        <center><img src="data:image/png;base64,{{ image }}"></center>
+    </div>
+</div><br>
+
+<div class="container">
+    {{data|safe}}
+</div>
+{% endblock %}

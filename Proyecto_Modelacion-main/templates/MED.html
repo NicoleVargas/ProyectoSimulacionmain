@@ -1,0 +1,59 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Media, Mediana y Moda</title>
+{% endblock %}
+    
+{% block content %} 
+
+
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+
+        <ol>
+          <li><a href="{{url_for('home')}}">Home</a></li>
+          <li>MED</li>
+        </ol>
+        <h2>Media, Mediana y Estadística</h2>
+
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+    <section class="inner-page">
+        <div class="container">
+          
+            <div class="section-title">
+                <h2>MEDIA, MEDIANA Y MODA</h2>
+            </div>
+        
+            <div class="card">
+                <form enctype="multipart/form-data" method="POST" action="{{url_for('calcularMED')}}"><br>
+                 <div class="col-sm-12">
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="exampleFormControlFile1">Suba un archivo Excel(.xlsx) </label>
+                                <input name="file" type="file" class="form-control-file form-data" id="exampleFormControlFile1" required>
+                                <small id="passwordHelpBlock" class="form-text text-muted">
+                                </small>
+                            </div>              
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-6 mb-3">
+                                <label for="validationDefault01">Escriba el nombre del campo a analizar</label>
+                                <input name="nombreColumna" type="text" class="form-control" id="validationDefault01"  required>
+                            </div>
+                            
+                        </div>    
+                        <button class="btn btn-primary" type="submit">Calcular</button>
+                    </div>
+                </form><br> 
+            </div>
+        </div><br>
+    </section>
+
+  </main><!-- End #main -->
+
+{% endblock %}

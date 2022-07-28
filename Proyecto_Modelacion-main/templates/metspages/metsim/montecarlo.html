@@ -1,0 +1,146 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+<title>Método Montecarlo</title>
+{% endblock %}
+
+{% block content %}
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <ol>
+        <li><a href="{{url_for('home')}}">Home</a></li>
+        <li>Montecarlo</li>
+      </ol>
+      <h2>Montecarlo</h2>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Método Montecarlo</h2>
+      </div>
+      <div class="row content">
+        <div class="col-lg-6">
+          <p>
+            El método de Montecarlo es un método no determinista o estadístico numérico, usado para aproximar 
+			expresiones matemáticas complejas y costosas de evaluar con exactitud. El método se llamó así en 
+			referencia al Casino de Montecarlo (Mónaco) por ser “la capital del juego de azar”, al ser la ruleta 
+			un generador simple de números aleatorios.
+          </p>
+          
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            El método de Montecarlo proporciona soluciones aproximadas a una gran variedad de problemas matemáticos 
+			posibilitando la realización de experimentos con muestreos de números pseudoaleatorios en una
+			computadora. 
+          </p>     
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Us Section -->
+  
+
+<div class="  demo-1" id="demo-1">
+	
+	<div class="main clearfix">
+		<div class="row">
+			<div class="col-sm-5">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title"> Montecarlo</h5>
+						<div class="card-text">
+							<form class="form-inline" method="POST">
+								<table class="table">
+									{% for field in form %}
+									<tr>
+										<td>{{ field.label }}</td>
+									</tr>
+									<tr>
+										<td>{{ field }}</td>
+									</tr>
+									{% endfor %}
+									<tr>
+										<td> <input type="submit" value="Resolver" class="btn btn-info form-control">
+										</td>
+										<td></td>
+									</tr>
+								</table>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-7">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title"> Importancia del método Montecarlo</h5>
+						<p>
+							El método es aplicable a cualquier tipo de problema, ya sea estocástico o determinista. 
+							A diferencia de los métodos numéricos que se basan en evaluaciones en N puntos en un 
+							espacio M-dimensional para producir una solución aproximada.
+						</p>
+						<p class="card-text">
+							
+							 La importancia actual del método Montecarlo se basa en la existencia de 
+							 problemas que tienen difícil solución por métodos exclusivamente analíticos
+							 o numéricos, pero que dependen de factores aleatorios o se pueden asociar 
+							 a un modelo probabilística artificial (resolución de integrales de muchas 
+							 variables, minimización de funciones, etc.).
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- parte 2 -->
+		<div class="row">
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Tabla de probabilidesde mínimas y máximas</h5>
+				  <p class="card-text">
+					{% if N != None %}
+					 
+					{% for table in tables %}
+					{{ table|safe }}
+					{% endfor %}
+					{% endif %}  
+					</p>
+				  
+				</div>
+			  </div>
+			</div>
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Tabla de la simulación</h5>
+				  <p class="card-text"> 
+            {% if N != None %}
+    
+            {% for table in tables2 %}
+            {{ table|safe }}
+            {% endfor %}
+        
+            {% endif %}
+				  </p>
+			 
+				</div>
+			  </div>
+			</div>
+		  </div>
+		<!-- parte 2 2 -->
+	</div>
+</div><!-- /container -->
+{% endblock %}

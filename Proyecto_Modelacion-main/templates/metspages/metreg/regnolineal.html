@@ -1,0 +1,142 @@
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Método de Regresión Lineal Cuadrada</title>
+{% endblock %}
+
+{% block content %}
+
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <ol>
+        <li><a href="{{url_for('home')}}">Home</a></li>
+        <li>Regresión Lineal Cuadrada</li>
+      </ol>
+      <h2>Regresión Lineal Cuadrada</h2>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Método de Regresión Lineal Cuadrada</h2>
+      </div>
+      <div class="row content">
+        <div class="col-lg-6">
+          <p>
+            El método de suavizamiento exponencial es una manera de pronosticar la demanda de un producto 
+			en un periodo dado. Estima que la demanda será igual a, por ejemplo, la media de los consumos 
+			históricos para un periodo dado, dando una mayor ponderación a los valores más cercanos en el 
+			tiempo. 
+          </p>
+          
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            Algunas de las técnicas incluidas en la familia de series temporales conocida como alisado 
+			o suavizamiento exponencial pueden extrapolarse a entornos de negocio altamente competitivos. 
+			Holt-Winters y Box-Jenkins son dos de las más relevantes
+          </p>     
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Us Section -->
+  
+
+<div class="demo-1" id="demo-1">
+	
+	<div class="main clearfix">
+		<div class="row">
+			<div class="col-sm-5">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Regresión lineal cuadrada</h5>
+						<div class="card-text">
+							<form class="form-inline" method="POST">
+								<table class="table">
+									{% for field in form %}
+									<tr>
+										<td>{{ field.label }}</td>
+									</tr>
+									<tr>
+										<td>{{ field }}</td>
+									</tr>
+									{% endfor %}
+									<tr>
+										<td> <input type="submit" value="Resolver" class="btn btn-info form-control">
+										</td>
+										<td></td>
+									</tr>
+								</table>
+							</form>
+
+
+
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-7">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title">Regresión lineal cudrática</h5>
+						<p class="card-text">
+							Una regresión cuadrática es el proceso de encontrar la ecuación de la parábola quemejor 
+							se ajuste para un conjunto de datos. Como resultado, obtenemos una ecuaciónde la formadonde 
+							.La potencia predictiva relativa de un modelo cuadrático está denotada por R 2. 
+							Elvalor de R 2 varía entre 0 y 1. Mientras más cercano el valor esté de 1, más precisoserá 
+							el modelo.Ejemplo 1:Considere el conjunto de datos.
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- parte 2 -->
+		<div class="row">
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Tabla de valores aleatorios</h5>
+				  <p class="card-text">
+					{% if N != None %}
+					 
+					{% for table in tables %}
+					{{ table|safe }}
+					{% endfor %}
+					{% endif %}  
+					</p>
+				  
+				</div>
+			  </div>
+			</div>
+			<div class="col-sm-6">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Gráfica de los números aleatorios generados</h5>
+				  <p class="card-text"> 
+					{% if N != None %}
+			 
+          <img src="{{ grafica }}" width="550">
+			
+					{% endif %}
+
+				  </p>
+			 
+				</div>
+			  </div>
+			</div>
+		  </div>
+		<!-- parte 2 2 -->
+	</div>
+</div><!-- /container -->
+{% endblock %}

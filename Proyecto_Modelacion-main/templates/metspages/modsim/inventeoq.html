@@ -1,0 +1,142 @@
+  
+{% extends "layout.html" %}
+
+{% block title %}
+<title>Método Inventario</title>
+{% endblock %}
+
+{% block content %}
+
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="breadcrumbs" class="breadcrumbs">
+    <div class="container">
+
+      <ol>
+        <li><a href="{{url_for('home')}}">Home</a></li>
+        <li>Inventario</li>
+      </ol>
+      <h2>Inventario</h2>
+
+    </div>
+  </section><!-- End Breadcrumbs -->
+
+<!-- ======= About Us Section ======= -->
+<section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title">
+        <h2>Simulación de Inventario</h2>
+      </div>
+      <div class="row content">
+        <div class="col-lg-6">
+          <p>
+            La simulación es simplemente una técnica que se dedica a construir modelos de una 
+			situación real que recrean la realidad. Aplicada a la realidad empresarial, la simulación 
+			aparece entonces como una herramienta muy importante, debida a que puede ser utilizada
+			 para experimentar con situaciones y tomar decisiones, sobre las cuales no se tiene información.
+          
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            Esto hace posible que se pueda anticipar posibles resultados imprevistos. Antes de gastar 
+			mucho dinero en un nuevo centro de distribución haría sentido efectuar algunas pruebas 
+			para evaluar el desempeño del proyecto. Esto es posible con el uso de la simulación, esta 
+			puede recrear el diseño del establecimiento y determinar su distribución, equipos o demás 
+			recursos antes de invertir grandes cantidades en la adquisición los mismos.
+          </p>     
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End About Us Section -->
+
+<div class="  demo-1" id="demo-1">
+	
+	<div class="main clearfix">
+		<div class="row">
+			<div class="col-sm-5">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title"> Inventario para empresa</h5>
+						<div class="card-text">
+							<form class="form-inline" method="POST">
+								<table class="table">
+									{% for field in form %}
+									<tr>
+										<td>{{ field.label }}</td>
+									</tr>
+									<tr>
+										<td>{{ field }}</td>
+									</tr>
+									{% endfor %}
+									<tr>
+										<td> <input type="submit" value="Resolver" class="btn btn-info form-control">
+										</td>
+										<td></td>
+									</tr>
+								</table>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			</div>
+			<div class="col-sm-7">
+				<div class="card">
+					<div class="card-body">
+						<h5 class="card-title"> Inventario para empresa</h5>
+						<p class="card-text">
+							La simulación de un sistema de inventarios, es una herramienta valiosa 
+							para toda organización, debido a que permite explorar los aspectos operativos, 
+							como por ejemplo, el cambio en los inventarios diariamente o por horas o minutos 
+							en cada uno de los eslabones de la cadena de abastecimiento con gran actividad. Un 
+							ejemplo de esto es cuando se analiza la relación el inventario de seguridad, las 
+							demoras en los pedidos y los niveles de servicio en diferentes puntos de la cadena 
+							de abastecimiento, que se ven afectados por los cambios en los patrones de la demanda
+							 y los pedidos no siempre corresponden al mismo tamaño y dependen de un pronóstico 
+							 de ventas.
+						</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- parte 2 -->
+		<div class="row">
+			<div class="col-sm-12">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Tabla de costos</h5>
+				  <p class="card-text">
+            {% if D != None %} 
+            {% for table in tables %}
+            {{ table|safe }}
+            {% endfor %}
+            {% endif %}
+					</p>
+				  
+				</div>
+			  </div>
+			</div>
+			<div class="col-sm-12">
+			  <div class="card">
+				<div class="card-body">
+				  <h5 class="card-title">Gráfico comparativo de costos</h5>
+				  <p class="card-text"> 
+            {% if D != None %}
+  
+            <img src="{{ grafica }}" width="600" >
+        
+            {% endif %}
+				  </p>
+			 
+				</div>
+			  </div>
+			</div>
+		  </div>
+		<!-- parte 2 2 -->
+	</div>
+</div><!-- /container -->
+{% endblock %}
